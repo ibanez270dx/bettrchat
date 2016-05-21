@@ -1,0 +1,51 @@
+body.rooms.index {
+
+  #page {
+    height: 100%;
+    background-image: url(asset-path('people-apple-iphone-writing.jpg'));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: relative;
+
+    &:before {
+      content: '';
+      @include position(absolute, 0px);
+      @include background(linear-gradient(to left, rgba(41, 157, 191, 0.8) 25%, rgba(26, 188, 156, 0.8) 100%));
+      z-index: 2;
+    }
+
+    section {
+      width: 100%;
+      @include display(flex);
+      @include align-items(center);
+      @include justify-content(center);
+    }
+  }
+
+  h1 {
+    width: 100%;
+    text-align: center;
+  }
+
+  #call-to-action {
+    position: relative;
+    max-width: 640px;
+    margin: auto;
+    z-index: 10;
+
+    h1 {
+      color: #fff;
+    }
+
+    input[type="text"] {
+      font-size: 32px;
+      width: 100%;
+      background-color: transparent;
+      border: 0;
+      border-bottom: 1px dashed #fff;
+      color: #fff;
+    }
+  }
+
+}

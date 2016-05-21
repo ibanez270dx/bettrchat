@@ -1,0 +1,8 @@
+<section>
+  <div id="call-to-action">
+    <h1>An Instant Chatroom For Any URL</h1>
+    <%= form_tag room_path, method: :get do %>
+      <%= text_field_tag :url, nil, placeholder: 'Search for a URL' %>
+    <% end %>
+  </div>
+</section>

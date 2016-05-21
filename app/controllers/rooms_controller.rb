@@ -1,6 +1,11 @@
 class RoomsController < ApplicationController
 
+  def index
+
+  end
+
   def show
+    redirect_to(action: :index) unless params[:url]
     @room = Room.find_or_create_by! room_params
     @rooms = Room.where host: @room.host
     @messages = @room.messages

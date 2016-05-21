@@ -1,0 +1,133 @@
+html, body, #page {
+  height: 100%;
+  textarea, input { outline: none; }
+}
+
+#page {
+  @include display(flex);
+
+  & > aside {
+    @include flex(1);
+    min-width: 250px;
+    max-width: 300px;
+    background-color: #37414A;
+    color: #fafafa;
+
+    & > form {
+      input {
+        padding: 16px;
+        width: 100%;
+        border: 0px;
+        background-color: rgba(#fff, 0.1);
+        @include box-sizing(border-box);
+      }
+    }
+
+    h1, h2, p, small {
+      padding: 0px 16px;
+    }
+
+    ul {
+      padding-left: 0px;
+      list-style-type: none;
+      li {
+        &:first-child {
+          border-top: 1px solid rgba(#92A1AD, 0.2);
+        }
+
+        a {
+          display: block;
+          padding: 16px;
+          color: #92A1AD;
+          border-bottom: 1px solid rgba(#92A1AD, 0.2);
+          text-decoration: none;
+
+          &.selected {
+            background-color: #273037;
+            color: #fafafa;
+          }
+        }
+      }
+    }
+  }
+
+  & > article {
+    @include flex(3);
+    @include display(flex);
+    @include flex-direction(column);
+    section#chat {
+      @include flex(3);
+      @include display(flex);
+      @include flex-direction(column);
+
+      header {
+        @include display(flex);
+        @include align-items(center);
+        @include justify-content(space-between);
+        @include background(linear-gradient(right, rgb(41, 157, 191) 25%, rgb(26, 188, 156) 100%));
+        min-height: 50px;
+        max-height: 50px;
+        padding: 0px 16px;
+        color: #fff;
+      }
+
+      #messages {
+        @include flex(1);
+        overflow-y: scroll;
+        background-color: #fafafa;
+
+        .message {
+          overflow: auto;
+          p {
+            @include display(flex);
+            @include align-items(center);
+            padding: 0px 16px;
+            margin-bottom: 0px;
+
+            span {
+              &[data-timestamp] {
+                min-width: 100px;
+                max-width: 100px;
+                margin-right: 10px;
+                color: #92A1AD;
+                font-variant: small-caps;
+                font-size: 12px;
+                text-align: right;
+              }
+              &.content {
+                display: inline-block;
+                padding: 6px 10px;
+              }
+            }
+          }
+
+          &:hover {
+            background-color: #EEEFEF;
+          }
+        }
+
+      }
+    }
+
+    section#form {
+      @include flex(1);
+      max-height: 100px;
+      min-height: 100px;
+      padding: 16px;
+      background-color: #CFD8DC;
+      border-top: 1px solid rgb(218, 228, 232);
+
+      label {
+        font-size: 12px;
+      }
+      textarea {
+        border: 1px solid #EEEFEF;
+        background-color: rgba(255,255,255,0.7);
+        border-radius: 2px;
+        margin-top: 10px;
+        width: 100%;
+        height: 60px;
+      }
+    }
+  }
+}
