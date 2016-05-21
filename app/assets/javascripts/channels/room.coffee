@@ -10,6 +10,7 @@ $(document).on "turbolinks:load", ->
       # Called when there's incoming data on the websocket for this channel
       $('#messages').append data['message']
       window.convertTimestamps()
+      window.scrollToBottom()
 
     speak: (room_id, message) ->
       @perform 'speak', room_id: room_id, message: message

@@ -8,5 +8,9 @@ window.convertTimestamps = ->
     timestamp = $(this).data 'timestamp'
     $(this).text moment.unix(timestamp).fromNow()
 
+window.scrollToBottom = ->
+  $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight
+
 $(document).on "turbolinks:load", ->
   convertTimestamps()
+  scrollToBottom()
