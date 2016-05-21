@@ -13,13 +13,9 @@ gem 'puma', '~> 3.0'                  # Use Puma as the app server
 #################################################
 
 gem 'sass-rails', '~> 5.0'            # Use SCSS for stylesheets
-
 gem 'uglifier', '>= 1.3.0'            # Use Uglifier as compressor for JavaScript assets
-
 gem 'coffee-rails', '~> 4.1.0'        # Use CoffeeScript for .coffee assets and views
-
 gem 'jquery-rails'                    # Use jquery as the JavaScript library
-
 gem 'turbolinks', '~> 5.x'            # Makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 
 #################################################
@@ -27,6 +23,7 @@ gem 'turbolinks', '~> 5.x'            # Makes navigating your web application fa
 #################################################
 
 gem 'redis', '~> 3.0'                 # Use Redis adapter to run Action Cable in production
+gem 'validate_url'                    # Adds the validation of URLs to ActiveRecord and ActiveModel 
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
