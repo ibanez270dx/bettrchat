@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   def show
-    @messages = Message.all
+    @room = Room.find_or_create_by! url: params[:url]
+    @messages = @room.messages
   end
 end
