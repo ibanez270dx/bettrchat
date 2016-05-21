@@ -1,10 +1,30 @@
-<h1>Chat Room</h1>
+<aside>
+  <h1>Bettr.Chat</h1>
+  <h2><%= @room.host %></h2>
+  <p>There are <%= @rooms.count %> active rooms</p>
+  <ul id="rooms">
+    <% @rooms.each do |room| %>
+      <li>
+        <%= link_to room_path(url: room.url), class: ('selected' if @room.url==room.url) do %>
+          <%= room.request_uri.present? ? room.request_uri : '/' %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</aside>
 
-<div id="messages">
-  <%= render @messages %>
-</div>
+<article>
+  <section id="chat">
+    <h2><%= @room.url %></h2>
+    <div id="messages">
+      <%= render @messages %>
+    </div>
+  </section>
 
-<form>
-  <label>Say something:</label><br />
-  <input type="text" data-behavior="room_speaker" data-room-id="<%= @room.id %>" />
-</form>
+  <section id="form">
+    <form>
+      <label>Say something:</label><br />
+      <textarea data-behavior="room_speaker" data-room-id="<%= @room.id %>"></textarea>
+    </form>
+  </section>
+</article>
