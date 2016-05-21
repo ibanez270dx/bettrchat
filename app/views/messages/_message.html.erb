@@ -1,5 +1,8 @@
 <% cache message do %>
   <div class="message">
-    <p><%= message.content %><p>
+    <p>
+      <span data-timestamp="<%= message.created_at.to_i %>"></span>
+      <span class="content"><%= message.content %></span>
+    <p>
   </div>
 <% end %>
