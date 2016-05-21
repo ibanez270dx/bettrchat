@@ -10,9 +10,12 @@ private
 
   def room_params
     uri = URI.parse params[:url]
+    uri = URI.parse("http://#{uri.to_s}") unless uri.is_a?(URI::HTTP)
+    host, request_uri = uri.host, uri.request_uri.gsub(/\/+$/,'')
     {
-      host: uri.host,
-      request_uri: uri.request_uri.gsub(/\/+$/,''),
+      host: host,
+      request_uri: request_uri,
+      key: "#{host}#{request_uri}",
       url: uri.to_s.gsub(/\/+$/,'')
     }
   end

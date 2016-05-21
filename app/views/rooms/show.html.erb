@@ -1,7 +1,10 @@
 <aside>
-  <h1>Bettr.Chat</h1>
+  <%= form_tag room_path, method: :get do %>
+    <%= text_field_tag :url, nil, placeholder: 'Search another URL' %>
+  <% end %>
+
   <h2><%= @room.host %></h2>
-  <p>There are <%= @rooms.count %> active rooms</p>
+  <small>There are <%= @rooms.count %> active rooms for this host</small>
   <ul id="rooms">
     <% @rooms.each do |room| %>
       <li>
@@ -15,7 +18,10 @@
 
 <article>
   <section id="chat">
-    <h2><%= @room.url %></h2>
+    <header>
+      <h1>Bettr.Chat</h1>
+      <h2><%= @room.key %></h2>
+    </header>
     <div id="messages">
       <%= render @messages %>
     </div>

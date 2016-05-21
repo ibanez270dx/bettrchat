@@ -1,5 +1,6 @@
 html, body, #page {
   height: 100%;
+  textarea, input { outline: none; }
 }
 
 #page {
@@ -12,7 +13,17 @@ html, body, #page {
     background-color: #37414A;
     color: #fafafa;
 
-    h1, h2, p {
+    & > form {
+      input {
+        padding: 16px;
+        width: 100%;
+        border: 0px;
+        background-color: rgba(#fff, 0.1);
+        @include box-sizing(border-box);
+      }
+    }
+
+    h1, h2, p, small {
       padding: 0px 16px;
     }
 
@@ -49,8 +60,15 @@ html, body, #page {
       @include display(flex);
       @include flex-direction(column);
 
-      h2 {
+      header {
+        @include display(flex);
+        @include align-items(center);
+        @include justify-content(space-between);
+        @include background(linear-gradient(right, rgb(41, 157, 191) 25%, rgb(26, 188, 156) 100%));
+        min-height: 50px;
+        max-height: 50px;
         padding: 0px 16px;
+        color: #fff;
       }
 
       #messages {
@@ -58,24 +76,28 @@ html, body, #page {
         overflow-y: scroll;
         background-color: #fafafa;
 
-        p {
-          @include display(flex);
-          @include align-items(center);
-          padding: 0px 16px;
+        .message {
+          overflow: auto;
+          p {
+            @include display(flex);
+            @include align-items(center);
+            padding: 0px 16px;
+            margin-bottom: 0px;
 
-          span {
-            &[data-timestamp] {
-              min-width: 100px;
-              max-width: 100px;
-              margin-right: 10px;
-              color: #92A1AD;
-              font-variant: small-caps;
-              font-size: 12px;
-              text-align: right;
-            }
-            &.content {
-              display: inline-block;
-              padding: 6px 10px;
+            span {
+              &[data-timestamp] {
+                min-width: 100px;
+                max-width: 100px;
+                margin-right: 10px;
+                color: #92A1AD;
+                font-variant: small-caps;
+                font-size: 12px;
+                text-align: right;
+              }
+              &.content {
+                display: inline-block;
+                padding: 6px 10px;
+              }
             }
           }
 
@@ -92,14 +114,15 @@ html, body, #page {
       max-height: 100px;
       min-height: 100px;
       padding: 16px;
-      background-color: #F68657;
-      border-top: 1px solid #CC673D;
+      background-color: #CFD8DC;
+      border-top: 1px solid rgb(218, 228, 232);
 
       label {
         font-size: 12px;
       }
       textarea {
-        border: 1px solid #CC673D;
+        border: 1px solid #EEEFEF;
+        background-color: rgba(255,255,255,0.7);
         border-radius: 2px;
         margin-top: 10px;
         width: 100%;
