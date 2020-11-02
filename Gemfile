@@ -6,7 +6,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '>= 5.0.0.rc1', '< 5.1'  # Rails 5
 gem 'pg'                              # Use PostgreSQL as the database for ActiveRecord
-gem 'puma', '~> 3.0'                  # Use Puma as the app server
+gem 'puma', '~> 3.12'                 # Use Puma as the app server
 
 #################################################
 # Assets
